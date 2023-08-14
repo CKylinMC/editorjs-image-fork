@@ -221,7 +221,9 @@ export default class Ui {
    */
   fillCaption(text) {
     if (this.nodes.caption) {
-      this.nodes.caption.innerHTML = text;
+      if (this.readOnly && text.length === 0){
+        this.nodes.caption.style.display = "none";
+      } else this.nodes.caption.innerHTML = text;
     }
   }
 
